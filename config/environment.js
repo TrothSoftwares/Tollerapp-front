@@ -6,6 +6,15 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+  'default-src': "'self' *",
+  'script-src': "'self'  'unsafe-inline' ,'unsafe-eval' *",
+  'font-src': "'self'  data: http://fonts.gstatic.com https://fonts.googleapis.com   * ",
+  'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com  * ",
+  'connect-src': "'self' *",
+  'media-src': "'self' *",
+  'img-src' : "'self' data: http://fonts.gstatic.com *"
+},
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -23,7 +32,23 @@ module.exports = function(environment) {
     }
   };
 
+
+  ENV['simple-auth-devise'] = {
+     tokenAttributeName: 'token',
+     identificationAttributeName: 'email',
+     serverTokenEndpoint:  ENV.APP.host  + '/users/sign_in',
+     authorizer: 'devise',
+     crossOriginWhitelist: ['*'],
+   };
+
+ ENV['ember-simple-auth'] = {
+     authenticationRoute: 'login',
+     routeAfterAuthentication: 'dashboard',
+     routeIfAlreadyAuthenticated: 'dashboard'
+   };
+
   if (environment === 'development') {
+        ENV.APP.host =  'http://localhost:3000';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -32,8 +57,16 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
-    // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV['ember-simple-auth'] = {
+  store: 'simple-auth-session-store:ephemeral'
+};
+
+ENV.APP.host =  'http://localhost:3000';
+// Testem prefers this...
+ENV.baseURL = '/';
+ENV.locationType = 'none';
+
+
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
