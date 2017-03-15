@@ -1,0 +1,12 @@
+{{file-upload   id="uploadprofile"   user=user on-upload=(action "uploadProfilePic")}}
+
+<input type="button" value="Upload Files " class="ui mini green fluid button oxy" onclick="document.getElementById('uploadprofile').click();" />
+
+{{#each audios as |audio index|}}
+<button {{action 'gets3file' audio.filename index}}>Play File </button>
+<audio id={{index}} controls>
+  <source id="source_{{index}}" src="" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+{{audio.filename}}
+{{/each}}

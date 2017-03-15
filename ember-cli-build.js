@@ -4,9 +4,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+
     // Add options here
   });
 
+app.import('vendor/aws-sdk-2.28.0.min.js');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
