@@ -1,26 +1,29 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
+  session: Ember.inject.service('session'),
 
-session: Ember.inject.service('session'),
 
 
-setupController: function(controller ,model) {
 
-  controller.setProperties(model);
+  setupController: function(controller ,model) {
 
-  if(Ember.isEqual('local', this.get('session.data.authenticated.role'))){
-    controller.set('isLocal',true );
-  }
-  if(Ember.isEqual('group', this.get('session.data.authenticated.role'))){
-    controller.set('isGroup',true );
-  }
-  if(Ember.isEqual('super', this.get('session.data.authenticated.role'))){
-    controller.set('isSuper',true );
-  }
+    controller.setProperties(model);
 
-},
+    if(Ember.isEqual('local', this.get('session.data.authenticated.role'))){
+      controller.set('isLocal',true );
+    }
+    if(Ember.isEqual('group', this.get('session.data.authenticated.role'))){
+      controller.set('isGroup',true );
+    }
+    if(Ember.isEqual('super', this.get('session.data.authenticated.role'))){
+      controller.set('isSuper',true );
+    }
+
+
+  },
+
+
 
   actions: {
     logout() {
@@ -29,4 +32,5 @@ setupController: function(controller ,model) {
       this.transitionTo('login');
     }
   }
+
 });

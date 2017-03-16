@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:mediamanager', 'Unit | Controller | mediamanager', {
+moduleFor('controller:dashboard/local/scheduleset', 'Unit | Controller | dashboard/local/scheduleset', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

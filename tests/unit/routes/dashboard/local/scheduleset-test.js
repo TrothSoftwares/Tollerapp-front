@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:local', 'Unit | Route | local', {
+moduleFor('route:dashboard/local/scheduleset', 'Unit | Route | dashboard/local/scheduleset', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

@@ -8,11 +8,12 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.route('dashboard' ,{path: '/'});
-  this.route('local', function() {
-    this.route('dashboard');
+  this.route('dashboard', {path: '/'}, function() {
+    this.route('local', function() {
+      this.route('scheduleset');
+      this.route('mediamanager');
+    });
   });
-  this.route('mediamanager');
 });
 
 export default Router;
