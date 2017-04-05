@@ -1,0 +1,5 @@
+<select onchange={{action "selectHour" value="target.value"}}>
+  {{#each hours as |hourChoice|}}
+  <option value={{hourChoice}} >{{hourChoice}}</option>
+  {{/each}}
+</select>

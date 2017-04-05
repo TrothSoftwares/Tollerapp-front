@@ -10,8 +10,12 @@ Router.map(function() {
   this.route('login');
   this.route('dashboard', {path: '/'}, function() {
     this.route('local', function() {
-      this.route('scheduleset');
       this.route('mediamanager');
+      this.route('schedulesets', function() {
+        this.route('scheduleset',{path: ':id'} , function() {
+          this.route('view');
+        });
+      });
     });
   });
 });

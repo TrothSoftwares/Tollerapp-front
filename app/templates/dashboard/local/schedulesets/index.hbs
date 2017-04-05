@@ -1,6 +1,7 @@
 <h3>Scheduleset Set </h3>
 
 {{#each schedulesets as |scheduleset index|}}
-
+{{#link-to 'dashboard.local.schedulesets.scheduleset.view' scheduleset.id }}
 {{scheduleset.id}}
+{{/link-to}}
 {{/each}}

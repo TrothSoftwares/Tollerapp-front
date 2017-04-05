@@ -1,0 +1,71 @@
+
+{{scheduleset.id}}
+
+Description: {{scheduleset.description}}
+{{ember-selectize
+  content=days
+  optionValuePath="content.id"
+  optionLabelPath="content.day"
+  multiple=true
+  selection=assignations
+  placeholder="Select an item" }}
+
+<button type="text" class="btn btn-success btn-xs" style="text-transorm:capitalize" {{action "saveAssignation"}}>Save Assignations</button>
+{{#each scheduleset.assignations as |assignation|}}
+<button type="text" class="btn btn-success btn-xs" style="text-transorm:capitalize">{{assignation.day}}</button>
+{{/each}}
+
+
+
+<table class = "table">
+   <caption>Timings</caption>
+
+   <thead>
+      <tr>
+         <th>Sl.No.</th>
+         <th>Time</th>
+         <th>File</th>
+         <th>Action</th>
+      </tr>
+   </thead>
+
+   <tbody>
+     {{#each scheduleset.timings as | timing index|}}
+      <tr>
+        {{#if timing.editTiming}}
+
+
+                  {{ember-selectize
+                 content=audios
+                 select-item="selectFile"
+                 optionValuePath="content.id"
+                 optionLabelPath="content.filename"
+                 selection=file
+                 placeholder="Select an file" }}
+
+        {{input value=timing.time}}
+        <button {{action "saveTiming" timing}}  type="text" class="btn btn-success btn-xs"  >Save</button>
+
+         {{else}}
+         <td>{{incrementone index}}</td>
+         <td>{{moment-format timing.time 'hh:mm'  }}
+
+
+            {{time-select-hour timing=timing}}
+            {{time-select-minute timing=timing}}
+
+
+
+         </td>
+         <td>{{timing.file}}</td>
+         <button {{action "editTiming"  timing}}  type="text" class="btn btn-success btn-xs"  >Edit</button>
+
+
+         {{/if}}
+      </tr>
+
+
+      {{/each }}
+   </tbody>
+
+</table>

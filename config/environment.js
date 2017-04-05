@@ -48,7 +48,7 @@ module.exports = function(environment) {
    };
 
   if (environment === 'development') {
-        ENV.APP.host =  'http://localhost:3000';
+        ENV.APP.host =  'http://localhost:3001';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
