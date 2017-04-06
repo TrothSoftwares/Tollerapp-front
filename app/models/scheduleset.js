@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -7,91 +9,102 @@ export default DS.Model.extend({
   user:DS.belongsTo('user',{embeded: 'always',async:true}),
 
 
-  mondayAssigned: function() {
-    var assignations = this.get('assignations');
-
-    return assignations.any(function(assignation){
-      if(assignation.get('day')==='monday'){
-        return true;
-      }else{
-        return false;
-      }
-    });
-  }.property('assignations.content@each.day'),
 
 
+    mondayAssigned: function() {
+      // var scheduleset = this.get('scheduleset');
+      var assignations = this.get('assignations');
 
-  tuesdayAssigned: function() {
-    var assignations = this.get('assignations');
-    return assignations.any(function(assignation){
-      if(assignation.get('day')==='tuesday'){
-        return true;
-      }else{
-        return false;
-      }
-    });
-  }.property('assignations.content@each.day'),
-
-  wednessdayAssigned: function() {
-    var assignations = this.get('assignations');
-    return assignations.any(function(assignation){
-      if(assignation.get('day')==='wednessday'){
-        return true;
-      }else{
-        return false;
-      }
-    });
-
-  }.property('assignations.content@each.day'),
-
-
-  thursdayAssigned: function() {
-    var assignations = this.get('assignations');
-    return assignations.any(function(assignation){
-      if(assignation.get('day')==='thursday'){
-        return true;
-      }else{
-        return false;
-      }
-    });
-  }.property('assignations.content@each.day'),
-
-
-  fridayAssigned: function() {
-    var assignations = this.get('assignations');
-    return assignations.any(function(assignation){
-      if(assignation.get('day')==='friday'){
-        return true;
-      }else{
-        return false;
-      }
-    });
-  }.property('assignations.content@each.day'),
+      return assignations.any(function(assignation){
+        if(assignation.get('day')==='monday'){
+          return true;
+        }else{
+          return false;
+        }
+      });
+    }.property('assignations.@each.day'),
 
 
 
-  saturdayAssigned: function() {
-    var assignations = this.get('assignations');
-    return assignations.any(function(assignation){
-      if(assignation.get('day')==='saturday'){
-        return true;
-      }else{
-        return false;
-      }
-    });
-  }.property('assignations.content@each.day'),
+    tuesdayAssigned: function() {
+      // var scheduleset = this.get('scheduleset');
+      var assignations = this.get('assignations');
+
+      return assignations.any(function(assignation){
+        if(assignation.get('day')==='tuesday'){
+          return true;
+        }else{
+          return false;
+        }
+      });
+    }.property('assignations.@each.day'),
 
 
-  sundayAssigned: function() {
-    var assignations = this.get('assignations');
-    return assignations.any(function(assignation){
-      if(assignation.get('day')==='sunday'){
-        return true;
-      }else{
-        return false;
-      }
-    });
-  }.property('assignations.content@each.day'),
+    wednessdayAssigned: function() {
+      // var scheduleset = this.get('scheduleset');
+      var assignations = this.get('assignations');
+      return assignations.any(function(assignation){
+        if(assignation.get('day')==='wednessday'){
+          return true;
+        }else{
+          return false;
+        }
+      });
+
+    }.property('assignations.@each.day'),
+
+
+    thursdayAssigned: function() {
+      // var scheduleset = this.get('scheduleset');
+      var assignations = this.get('assignations');
+      return assignations.any(function(assignation){
+        if(assignation.get('day')==='thursday'){
+          return true;
+        }else{
+          return false;
+        }
+      });
+    }.property('assignations.@each.day'),
+
+
+    fridayAssigned: function() {
+      // var scheduleset = this.get('scheduleset');
+      var assignations = this.get('assignations');
+      return assignations.any(function(assignation){
+        if(assignation.get('day')==='friday'){
+          return true;
+        }else{
+          return false;
+        }
+      });
+    }.property('assignations.@each.day'),
+
+
+
+    saturdayAssigned: function() {
+      // var scheduleset = this.get('scheduleset');
+      var assignations = this.get('assignations');
+      return assignations.any(function(assignation){
+        if(assignation.get('day')==='saturday'){
+          return true;
+        }else{
+          return false;
+        }
+      });
+    }.property('assignations.@each.day'),
+
+
+    sundayAssigned: function() {
+      // var scheduleset = this.get('scheduleset');
+      var assignations = this.get('assignations');
+      return assignations.any(function(assignation){
+        if(assignation.get('day')==='sunday'){
+          return true;
+        }else{
+          return false;
+        }
+      });
+    }.property('assignations.@each.day'),
 
 
 

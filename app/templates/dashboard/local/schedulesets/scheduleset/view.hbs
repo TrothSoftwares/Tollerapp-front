@@ -3,8 +3,8 @@
 
 Description: {{scheduleset.description}}
 
-
 {{scheduleset.mondayAssigned}}
+{{mondayAssigned}}
 <button type="text" class="btn {{if scheduleset.mondayAssigned 'btn-success' 'btn-error' }}  btn-xs"  {{action "saveAssignation" 'monday' scheduleset}}>Monday</button>
 <button type="text" class="btn  {{if scheduleset.tuesdayAssigned 'btn-success' 'btn-error' }}   btn-xs"  {{action "saveAssignation" 'tuesday' scheduleset}}>Tuesday</button>
 <button type="text" class="btn  {{if scheduleset.wednessdayAssigned 'btn-success' 'btn-error' }} btn-xs"  {{action "saveAssignation" 'wednessday' scheduleset}}>Wednesday</button>

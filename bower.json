@@ -1,7 +1,7 @@
 {
   "name": "tollerapp-front",
   "dependencies": {
-    "ember": "2.11.0",
+    "ember": "2.12.0",
     "ember-cli-shims": "0.1.0",
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
@@ -13,7 +13,7 @@
     "offline": "^0.7.18"
   },
   "resolutions": {
-    "ember": "2.11.0",
+    "ember": "2.12.0",
     "qunit": "2.1.0",
     "loader.js": "4.1.0"
   }
