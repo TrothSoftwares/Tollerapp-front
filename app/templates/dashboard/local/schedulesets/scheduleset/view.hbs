@@ -2,18 +2,16 @@
 {{scheduleset.id}}
 
 Description: {{scheduleset.description}}
-{{ember-selectize
-  content=days
-  optionValuePath="content.id"
-  optionLabelPath="content.day"
-  multiple=true
-  selection=assignations
-  placeholder="Select an item" }}
 
-<button type="text" class="btn btn-success btn-xs" style="text-transorm:capitalize" {{action "saveAssignation"}}>Save Assignations</button>
-{{#each scheduleset.assignations as |assignation|}}
-<button type="text" class="btn btn-success btn-xs" style="text-transorm:capitalize">{{assignation.day}}</button>
-{{/each}}
+
+{{scheduleset.mondayAssigned}}
+<button type="text" class="btn {{if scheduleset.mondayAssigned 'btn-success' 'btn-error' }}  btn-xs"  {{action "saveAssignation" 'monday' scheduleset}}>Monday</button>
+<button type="text" class="btn  {{if scheduleset.tuesdayAssigned 'btn-success' 'btn-error' }}   btn-xs"  {{action "saveAssignation" 'tuesday' scheduleset}}>Tuesday</button>
+<button type="text" class="btn  {{if scheduleset.wednessdayAssigned 'btn-success' 'btn-error' }} btn-xs"  {{action "saveAssignation" 'wednessday' scheduleset}}>Wednesday</button>
+<button type="text" class="btn  {{if scheduleset.thursdayAssigned 'btn-success' 'btn-error' }}  btn-xs"  {{action "saveAssignation" 'thursday' scheduleset}}>Thursday</button>
+<button type="text" class="btn  {{if scheduleset.fridayAssigned 'btn-success' 'btn-error' }} btn-xs"  {{action "saveAssignation" 'friday' scheduleset}}>Friday</button>
+<button type="text" class="btn {{if scheduleset.saturdayAssigned 'btn-success' 'btn-error' }}  btn-xs"  {{action "saveAssignation" 'saturday' scheduleset}}>Saturday</button>
+<button type="text" class="btn {{if scheduleset.sundayAssigned 'btn-success' 'btn-error' }}   btn-xs"  {{action "saveAssignation" 'sunday' scheduleset}}>Sunday</button>
 
 
 
