@@ -1,0 +1,16 @@
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    {{input type="text" value=title class="form-control" placeholder="Title"}}
+
+  </div>
+  <div class="form-group">
+    <label >Body</label>
+    {{textarea value=body class="form-control"}}
+  </div>
+
+
+
+  <button type="submit" {{action 'createTicket'}} disabled={{isCreateTicketDisabled}} class="btn btn-default">Submit</button>
+</form>

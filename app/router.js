@@ -16,6 +16,13 @@ Router.map(function() {
           this.route('view');
         });
       });
+      this.route('tickets', function() {
+        this.route('ticket', {path: ':id'} ,  function() {
+          this.route('view');
+          this.route('edit');
+        });
+        this.route('new');
+      });
     });
   });
 });
