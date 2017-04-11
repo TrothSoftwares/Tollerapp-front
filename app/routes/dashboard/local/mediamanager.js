@@ -21,8 +21,12 @@ return Ember.RSVP.hash({
 setupController: function(controller ,model) {
 controller.set('user',model.user);
 controller.set('audios',model.audios);
-
-
 },
+
+actions: {
+	    reloadModel: function() {
+	      this.refresh();
+	    }
+	  }
 
 });

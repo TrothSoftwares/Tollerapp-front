@@ -10,6 +10,8 @@ import AWS from 'npm:aws-sdk';
 export default Ember.Controller.extend({
   audio: Ember.inject.service(),
   session: Ember.inject.service('session'),
+  imageUploading:false,
+  uploadPercent:0,
 
 actions:{
 
@@ -43,8 +45,12 @@ actions:{
      }).create();
 
 
-     uploader.on('progress', function() {
+     uploader.on('progress', function(e) {
+
+
+
        controller.set('imageUploading',true);
+       controller.set('uploadPercent',e.percent);
      });
 
      uploader.on('didUpload', function() {
@@ -54,6 +60,7 @@ actions:{
          autoClear: true
        });
        controller.set('imageUploading',false);
+       controller.send('reloadModel');
      });
 
      uploader.on('didError', function(jqXHR, textStatus, errorThrown) {
@@ -83,14 +90,14 @@ actions:{
 
 
 gets3file:function(file,index){
-
+console.log(file,index);
 var controller=this;
 var ep = new AWS.Endpoint('s3.amazonaws.com');
 
 AWS.config.update(
   {
-    accessKeyId: "AKIAI36VU6JETNDYI3HQ",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAJSQBVQKZZZWV4JOA",
+    secretAccessKey: "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",
     signatureVersion: 'v4',
       region: 'ap-south-1',
       Endpoint:'https://tollerapp.s3.amazonaws.com'
@@ -101,7 +108,7 @@ var s3 = new AWS.S3({endpoint: ep});
 
 
 
-var params = {Bucket: 'tollerapp', Key: 'tollerapp/uploads/Chamber_Decompressing-SoundBible.com-1075404493.mp3'};
+var params = {Bucket: 'tollerapp', Key: 'tollerapp/'+file.get('forsignedurl')};
 var url = s3.getSignedUrl('getObject', params);
 console.log(url);
 
@@ -112,7 +119,8 @@ var source = document.getElementById("source_"+index);
 source.src=url;
 
 audio.load(); //call this to just preload the audio without playing
-       audio.play(); //call this to play the song right away
+file.set('isFetchButtonDisabled','disabled');
+      //  audio.play(); //call this to play the song right away
 
 
 

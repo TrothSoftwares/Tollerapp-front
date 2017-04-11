@@ -1,12 +1,22 @@
+<button class="btn-primary">
 {{file-upload   id="uploadprofile"   user=user on-upload=(action "uploadProfilePic")}}
+</button>
 
-<input type="button" value="Upload Files " class="ui mini green fluid button oxy" onclick="document.getElementById('uploadprofile').click();" />
 
-{{#each audios as |audio index|}}
-<button {{action 'gets3file' audio.filename index}}>Play File </button>
-<audio id={{index}} controls>
-  <source id="source_{{index}}" src="" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-{{audio.filename}}
-{{/each}}
+{{#bs-progress as |p|}}
+  {{p.bar value=uploadPercent minValue=0 maxValue=100 showLabel="Progress"  type="success" striped=true animate=true}}
+{{/bs-progress}}
+
+
+<!-- <input type="button" value="Upload Files " class="ui mini green fluid button oxy" onclick="document.getElementById('uploadprofile').click();" /> -->
+
+<ul class="list-group">
+  {{#each audios as |audio index|}}
+  <li class="list-group-item"><button class="btn btn-default {{audio.isFetchButtonDisabled}}"  {{action 'gets3file' audio  index}}>Fetch File </button>
+  <audio id={{index}} controls>
+    <source id="source_{{index}}" src="" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+  {{audio.filename}}</li>
+  {{/each}}
+</ul>

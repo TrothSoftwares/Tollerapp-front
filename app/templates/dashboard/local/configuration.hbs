@@ -1,0 +1,36 @@
+{{#bs-tab as |tab|}}
+  {{#tab.pane title="Internet"}}
+
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">DynDns</label>
+      {{input type="text" value=user.dyndns class="form-control" placeholder="DynDns"}}
+
+    </div>
+    <div class="form-group">
+      <label >Port</label>
+      {{textarea value=user.internetport class="form-control"}}
+    </div>
+
+    <button type="submit" {{action 'SaveUser' user}} disabled={{isCreateTicketDisabled}} class="btn btn-default">Submit</button>
+  </form>
+
+  {{/tab.pane}}
+  {{#tab.pane title="Ethernet"}}
+
+
+  <form>
+
+    <div class="form-group">
+      <label >Port</label>
+      {{textarea value=user.ethernetport class="form-control"}}
+    </div>
+
+    <button type="submit" {{action 'SaveUser' user}} disabled={{isCreateTicketDisabled}} class="btn btn-default">Submit</button>
+  </form>
+
+
+  {{/tab.pane}}
+
+
+{{/bs-tab}}

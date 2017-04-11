@@ -11,10 +11,6 @@ export default Ember.Route.extend({
 
 setupController: function(controller ,model) {
   controller.set('ticket',model.ticket );
-
-
-
-
 }
 
 });

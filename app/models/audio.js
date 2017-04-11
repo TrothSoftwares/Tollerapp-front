@@ -6,5 +6,7 @@ export default DS.Model.extend({
  fullurl: DS.attr('string'),
  thumburl: DS.attr('string'),
  filename: DS.attr('string'),
- user: DS.belongsTo('user' , {async:true })
+ forsignedurl: DS.attr('string'),
+ user: DS.belongsTo('user' , {async:true }),
+ isFetchButtonDisabled:DS.attr('string' ,{default:''})
 });

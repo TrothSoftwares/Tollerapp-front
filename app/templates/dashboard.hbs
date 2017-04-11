@@ -5,7 +5,6 @@
       <li class="active">
         {{#link-to 'dashboard'}}Toller App{{/link-to}}
       </li>
-
       <li class="dropdown pull-right">
       {{#bs-dropdown tagName="span" as |dd|}}
 
@@ -38,12 +37,16 @@
                   Dashboard
                 </button>
                 {{/link-to}}
+                {{#link-to 'dashboard.local.profile'}}
       					<button type="button" class="btn btn-block btn-sm btn-default">
       						Profile
       					</button>
+                {{/link-to}}
+                {{#link-to 'dashboard.local.configuration'}}
                 <button type="button" class="btn btn-block btn-sm btn-default">
       						Configuration
       					</button>
+                {{/link-to}}
                 <button type="button" class="btn btn-block btn-sm btn-default">
       						Log
       					</button>
