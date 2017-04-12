@@ -13,5 +13,8 @@ export default DS.Model.extend({
   schedulesets: DS.hasMany('scheduleset' ,{embedded: 'always', async:true}),
   tickets: DS.hasMany('ticket' ,{embedded: 'always', async:true}),
 
+  groups: DS.hasMany('group' , {embedded: 'always', async:true}),
+  memberships: DS.hasMany('membership',  {embedded: 'always', async:true}),
+
 
 });
