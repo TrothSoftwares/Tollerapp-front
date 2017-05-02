@@ -26,6 +26,17 @@ Router.map(function() {
       this.route('configuration');
       this.route('profile');
     });
+
+
+
+    this.route('group', function() {
+      this.route('users', function() {
+        this.route('user' , {path: ':id'} , function() {
+          this.route('view');
+          this.route('edit');
+        });
+      });
+    });
   });
 });
 

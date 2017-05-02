@@ -1,3 +1,5 @@
-{{#each memberuser as |memberuser index|}}
-{{memberuser.id}}
-{{/each}}
+{{#each memberusers as |memberuser index|}}
+{{#link-to 'dashboard.group.users.user.view' memberuser.id }}
+ {{memberuser.id}}
+ {{/link-to}}
+ {{/each}}
