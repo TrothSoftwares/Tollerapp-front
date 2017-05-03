@@ -7,8 +7,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
 
   setupController: function(controller ,model) {
-    console.log("sdfsdfsdf");
-
+ 
     controller.setProperties(model);
 
     if(Ember.isEqual('local', this.get('session.data.authenticated.role'))){
