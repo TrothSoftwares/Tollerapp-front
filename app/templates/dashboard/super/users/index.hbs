@@ -1,0 +1,5 @@
+{{#each users as |user index|}}
+{{#link-to 'dashboard.super.users.user.view' user.id }}
+ {{user.id}}
+ {{/link-to}}
+ {{/each}}

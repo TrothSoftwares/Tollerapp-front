@@ -1,0 +1,32 @@
+<table class="table">
+
+  <tbody>
+    <tr>
+      <td>Name of Institution</td>
+      <td>{{input type="text"  class="form-control" value=user.nameofinstitution}}</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>{{input type="text"  class="form-control" value=user.location}}</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>{{input type="text"  class="form-control" value=user.address}}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{input type="text"  class="form-control" value=user.contactno}}</td>
+    </tr>
+    <tr>
+      <td>New Password</td>
+      <td>{{input type="password"  class="form-control" value=password}}</td>
+    </tr>
+    <tr>
+      <td>Confirm password</td>
+      <td>{{input type="password" class="form-control" value=password_confirmation}}</td>
+    </tr>
+
+
+<button {{action "saveUser" user}}class="btn btn-default"> Save User</button>
+  </tbody>
+</table>

@@ -9,6 +9,8 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('dashboard', {path: '/'}, function() {
+
+    //START OF LOCAL USERS //
     this.route('local', function() {
       this.route('mediamanager');
       this.route('schedulesets', function() {
@@ -26,9 +28,10 @@ Router.map(function() {
       this.route('configuration');
       this.route('profile');
     });
+    //END OF LOCAL USERS //
 
 
-
+    //START OF GROUP USERS //
     this.route('group', function() {
       this.route('users', function() {
         this.route('user' , {path: ':id'} , function() {
@@ -37,6 +40,20 @@ Router.map(function() {
         });
       });
     });
+    //END OF GROUP USERS //
+
+    //START OF SUPER USER //
+
+    this.route('super', function() {
+      this.route('users', function() {
+        this.route('user',  {path: ':id'} , function() {
+          this.route('view');
+          this.route('edit');
+        });
+      });
+    });
+
+    //END OF SUPER USER //
   });
 });
 

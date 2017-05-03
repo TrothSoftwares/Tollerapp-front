@@ -1,0 +1,31 @@
+<table class="table">
+
+  <tbody>
+    <tr>
+      <td>Name of Institution</td>
+      <td>{{user.nameofinstitution}}</td>
+      <td>{{input type="text"  class="form-control" value=user.nameofinstitution}}</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>{{user.location}}</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>{{user.address}}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{user.contactno}}</td>
+    </tr>
+    <tr>
+      <td>Installation Date</td>
+      <td>{{moment-format user.installationdate 'DD-MM-YYYY'}}</td>
+    </tr>
+    <tr>
+      <td>Installation Date</td>
+      <td>{{moment-format user.installationdate 'DD-MM-YYYY'}}</td>
+    </tr>
+  {{link-to "Edit user" 'dashboard.super.users.user.edit' user}}
+  </tbody>
+</table>
