@@ -88,14 +88,14 @@ actions:{
 
 
 gets3file:function(file,index){
-console.log(file,index);
+// console.log(file,index);
 var controller=this;
 var ep = new AWS.Endpoint('s3.amazonaws.com');
 
 AWS.config.update(
   {
-    accessKeyId: "AKIAJSQBVQKZZZWV4JOA",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAJDVUHRLQMCTUS2DA",
+    secretAccessKey: "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",
     signatureVersion: 'v4',
       region: 'ap-south-1',
       Endpoint:'https://tollerapp.s3.amazonaws.com'

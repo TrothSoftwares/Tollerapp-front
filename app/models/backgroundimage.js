@@ -8,4 +8,6 @@ export default DS.Model.extend({
   filename: DS.attr('string'),
   forsignedurl: DS.attr('string'),
   status:DS.attr('boolean')
+
+  
 });
