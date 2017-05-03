@@ -57,6 +57,10 @@ Router.map(function() {
           this.route('edit');
         });
       });
+      this.route('settings', function() {
+        this.route('wallet');
+        this.route('quotes');
+      });
     });
 
     //END OF SUPER USER //
