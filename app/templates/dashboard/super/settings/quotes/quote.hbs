@@ -1,0 +1,49 @@
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Quote Text</label>
+    {{input type="text" value=quotetext class="form-control" placeholder="Quote Text"}}
+
+  </div>
+  <div class="form-group">
+    <label >Author</label>
+    {{input type="text" value=author class="form-control" placeholder="Author"}}
+  </div>
+  <button type="submit" {{action 'createQuote'}} disabled={{isCreateQuoteDisabled}} class="btn btn-default">Submit</button>
+</form>
+
+
+<ul>
+{{#each quotes as |quote index|}}
+{{#if (eq quote.isQuoteEditing true)}}
+
+<li>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Quote Text</label>
+    {{input type="text" value=quote.quotetext class="form-control" placeholder="Quote Text"}}
+
+  </div>
+  <div class="form-group">
+    <label >Author</label>
+    {{input type="text" value=quote.author class="form-control" placeholder="Author"}}
+  </div>
+
+  <div class="form-group">
+    <label >Status</label>
+    {{input type="checkbox" checked=quote.status}}
+  </div>
+
+  <button type="submit" {{action 'saveQuote' quote}} disabled={{quote.isCreateQuoteDisabled}} class="btn btn-default">Submit</button>
+  <button type="submit" {{action 'deleteQuote' quote}}class="btn btn-default">Delete</button>
+</form>
+</li>
+{{else}}
+<li>
+{{incrementone index}} -  {{quote.quotetext}} - {{quote.author}} -{{quote.status}}
+<button type="submit" {{action 'editQuote' quote}}  class="btn btn-default">Edit</button>
+</li>
+{{/if}}
+{{/each}}
+
+</ul>

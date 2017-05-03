@@ -59,7 +59,10 @@ Router.map(function() {
       });
       this.route('settings', function() {
         this.route('wallet');
-        this.route('quotes');
+        this.route('quotes', function() {
+          this.route('quote');
+          this.route('backgroundimage');
+        });
       });
     });
 

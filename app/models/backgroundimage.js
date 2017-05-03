@@ -6,5 +6,6 @@ export default DS.Model.extend({
   fullurl: DS.attr('string'),
   thumburl: DS.attr('string'),
   filename: DS.attr('string'),
-  forsignedurl: DS.attr('string')
+  forsignedurl: DS.attr('string'),
+  status:DS.attr('boolean')
 });
