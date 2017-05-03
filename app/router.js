@@ -51,6 +51,12 @@ Router.map(function() {
           this.route('edit');
         });
       });
+      this.route('tickets', function() {
+        this.route('ticket', {path: ':id'} , function() {
+          this.route('view');
+          this.route('edit');
+        });
+      });
     });
 
     //END OF SUPER USER //

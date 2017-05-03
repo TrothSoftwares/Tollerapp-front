@@ -1,0 +1,10 @@
+<h3>Tickets </h3>
+
+
+<br><br>
+
+{{#each tickets as |ticket index|}}
+{{#link-to 'dashboard.super.tickets.ticket.view' ticket.id }}
+{{ticket.id}}
+{{/link-to}}
+{{/each}}
