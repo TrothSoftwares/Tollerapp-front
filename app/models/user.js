@@ -17,7 +17,7 @@ export default DS.Model.extend({
   schedulesets: DS.hasMany('scheduleset' ,{embedded: 'always', async:true}),
   tickets: DS.hasMany('ticket' ,{embedded: 'always', async:true}),
   payments: DS.hasMany('payment' ,{embedded: 'always', async:true}),
-  walletpayments:DS.hasMany('payment' ,{embedded: 'always', async:true}),
+  walletpayments:DS.hasMany('walletpayment' ,{embedded: 'always', async:true}),
 
 
 

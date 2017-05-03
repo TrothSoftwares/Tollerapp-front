@@ -1,1 +1,17 @@
-{{outlet}}
+<h3>Background Image Settings</h3>
+
+<button class="btn-primary">
+{{file-upload   id="uploadprofile"   user=user on-upload=(action "uploadProfilePic")}}
+</button>
+
+
+{{#bs-progress as |p|}}
+  {{p.bar value=uploadPercent minValue=0 maxValue=100 showLabel="Progress"  type="success" striped=true animate=true}}
+{{/bs-progress}}
+
+
+<ul class="list-group">
+  {{#each backgroundimages as |backgroundimage index|}}
+  <img src={{backgroundimage.fullurl}}/>
+  {{/each}}
+</ul>

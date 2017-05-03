@@ -35,13 +35,11 @@ actions:{
        method: 'PATCH',
        paramNamespace: 'audio',
        paramName: 'url',
-       ajaxSettings: function() {
-         var settings = this._super.apply(this, arguments);
-         settings.headers = {
+       ajaxSettings: {
+         headers: {
            'Authorization':'Token token="'+ authenticated.token +'", email="'+ authenticated.email +'"'
-         };
-         return settings;
-       }
+         }
+       },
      }).create();
 
 
@@ -128,25 +126,6 @@ file.set('isFetchButtonDisabled','disabled');
   Ember.$("source_"+index).attr("src", url);
 
 
-        // audio.load(); //call this to just preload the audio without playing
-        // audio.play(); //call this to play the song right away
-//
-// s3.getObject(
-//   { Bucket: "tollerapp", Key: 'tollerapp/uploads/Chamber_Decompressing-SoundBible.com-1075404493.mp3' },
-//   function (error, data) {
-//     if (error != null) {
-//       alert("Failed to retrieve an object: " + error);
-//     } else {
-//       // controller.get('audio').load(data).asSound('piano-note');
-//       //
-//       stream.write(data);
-//       // controller.get('audio').getSound('piano-note').play();
-//
-//       alert("Loaded " + data.ContentLength + " bytes");
-//       // do something with data.Body
-//     }
-//   }
-// );
 
 
 
